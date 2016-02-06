@@ -7,8 +7,8 @@ jobs:
   - get: resource-web-app
   - put: resource-deploy-web-app
     params:
-     manifest: resource-web-app/manifest.yml
-     path: resource-web-app
+#     manifest: resource-web-app/manifest.yml
+     path: resource-web-app/build/libs/micropcf-exampleApp.war
 
 resources:
 - name: resource-web-app
