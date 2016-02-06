@@ -1,0 +1,10 @@
+---
+applications:
+- name: simple-mongodb-rest-app
+  host: simple-mongodb-rest-app
+  memory: 1GB
+  instances: 1
+  services:
+  - p-mongodb
+  env:
+      SPRING_PROFILES_ACTIVE: cloud
