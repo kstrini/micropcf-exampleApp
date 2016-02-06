@@ -4,6 +4,8 @@ applications:
   host: simple-mongodb-rest-app
   memory: 1GB
   instances: 1
+  path: build/libs/micropcf-exampleApp.war
+  buildpack: java_buildpack
   services:
   - p-mongodb
   env:
