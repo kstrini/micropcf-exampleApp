@@ -12,4 +12,17 @@ public class CloudDataSourceConfig extends AbstractCloudConfig
 {
     @Bean
     public MongoDbFactory documentMongoDbFactory() {return connectionFactory().mongoDbFactory();}
+
+//    @Bean
+//    public DataSource dataSource() {return connectionFactory().dataSource();}
+
+//    @Bean
+//    public ConnectionFactory rabbitConnectionFactory(){return connectionFactory().rabbitConnectionFactory();}
+
+//    @Bean
+//    public DataSource gemfirexdDataSource(){return connectionFactory().dataSource();}
+
+//    @Bean
+//    public Configuration hadoopConfiguration(){return connectionFactory().service(Configuration.class);}
+
 }
