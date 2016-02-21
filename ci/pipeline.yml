@@ -19,7 +19,7 @@ jobs:
 #    file: code-repo/ci/tasks/build-artifact.yml
 #    timeout: 5m
   - put: code-release
-    params: {from: code-repo/build/libs/{{app-name}}-.*.war}
+    params: {from: code-repo/build/libs/simple-mongodb-rest-app-.*.war}
   - put: code-repo
     params:
       repository: code-repo
