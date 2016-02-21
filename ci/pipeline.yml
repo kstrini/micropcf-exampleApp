@@ -13,11 +13,11 @@ jobs:
   - get: code-repo
     passed: [unit]
     trigger: true
-  - get: version
-    params: {bump: patch}
-  - task: build-artifact
-    file: code-repo/ci/tasks/build-artifact.yml
-    timeout: 5m
+#  - get: version
+#    params: {bump: patch}
+#  - task: build-artifact
+#    file: code-repo/ci/tasks/build-artifact.yml
+#    timeout: 5m
   - put: code-release
     params: {from: code-repo/build/libs/{{app-name}}-.*.war}
   - put: code-repo
