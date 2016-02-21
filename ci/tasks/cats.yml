@@ -1,0 +1,13 @@
+---
+platform: linux
+
+image: docker:///datianshi/cf-cli
+
+inputs:
+  - name: code-repo
+
+run:
+  path: code-repo/ci/tasks/cats.sh
+
+params:
+  CODE_URL:

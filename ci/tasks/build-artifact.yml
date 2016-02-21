@@ -1,0 +1,11 @@
+---
+platform: linux
+
+image: docker:///datianshi/gradle
+
+inputs:
+  - name: code-repo
+  - name: version
+
+run:
+  path: code-repo/ci/tasks/build-artifact.sh

@@ -1,8 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fea51723-97ac-4e8d-89e4-3edcda5f5ef0" name="Default" comment="Fixed the path/war redundancy that was confusing Concourse" />
+    <list default="true" id="fea51723-97ac-4e8d-89e4-3edcda5f5ef0" name="Default" comment="Fixed the path/war redundancy that was confusing Concourse">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ci/Dockerfile" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ci/pipeline.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ci/tasks/build-artifact.sh" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ci/tasks/build-artifact.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ci/tasks/cats.sh" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ci/tasks/cats.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ci/tasks/cf-deployment.sh" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ci/tasks/cf-deployment.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ci/tasks/push-tag.sh" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ci/tasks/unit.sh" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ci/tasks/unit.yml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/pipeline.yml" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/cache.properties.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileHashes.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileSnapshots.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/outputFileStates.bin" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/outputFileStates.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/taskArtifacts.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/libs/micropcf-exampleApp.war" afterPath="$PROJECT_DIR$/build/libs/micropcf-exampleApp.war" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/libs/micropcf-exampleApp.war.original" afterPath="$PROJECT_DIR$/build/libs/micropcf-exampleApp.war.original" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build.gradle" afterPath="$PROJECT_DIR$/build.gradle" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/micropcf-exampleApp.iml" afterPath="$PROJECT_DIR$/micropcf-exampleApp.iml" />
+    </list>
     <list id="45d863ec-2ad3-43be-8ccb-fc7507361222" name="Failed commit: Default" comment="Fixed the path/war redundancy that was confusing Concourse" />
+    <ignored path=".idea/dataSources.local.xml" />
     <ignored path="build/" />
     <manually-removed-from-ignored>
       <directory path="$PROJECT_DIR$/build/" />
@@ -49,6 +73,10 @@
                 <option name="myItemId" value="micropcf-exampleApp" />
                 <option name="myItemType" value="com.intellij.openapi.externalSystem.view.ProjectNode" />
               </PATH_ELEMENT>
+              <PATH_ELEMENT>
+                <option name="myItemId" value="Dependencies" />
+                <option name="myItemType" value="com.intellij.openapi.externalSystem.view.ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+              </PATH_ELEMENT>
             </PATH>
             <PATH>
               <PATH_ELEMENT>
@@ -75,10 +103,20 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="pipeline.yml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/pipeline.yml">
+        <entry file="file://$PROJECT_DIR$/ci/pipeline.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.738255">
-              <caret line="22" column="12" selection-start-line="22" selection-start-column="12" selection-end-line="22" selection-end-column="12" />
+            <state vertical-scroll-proportion="0.8913044">
+              <caret line="119" column="0" selection-start-line="119" selection-start-column="0" selection-end-line="119" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="credentials.yml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ci/credentials.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="9" column="33" selection-start-line="9" selection-start-column="10" selection-end-line="9" selection-end-column="33" />
               <folding />
             </state>
           </provider>
@@ -185,23 +223,12 @@
                 <option name="name" value="compileTestJava" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Bundles the project as a JVM application with libs and OS specific scripts." />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="distTar" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Bundles the project as a JVM application with libs and OS specific scripts." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="distZip" />
+                <option name="name" value="dependencyManagement" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="findMainClass" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Installs the project as a JVM application along with libs and OS specific scripts." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="installApp" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Assembles a jar archive containing the main classes." />
@@ -222,16 +249,6 @@
                 <option name="description" value="Processes JVM resources 'test:resources'." />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="processTestResources" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Runs this project as a JVM application" />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="run" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Creates OS specific scripts to run the project as a JVM application." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="startScripts" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Runs the unit tests." />
@@ -266,7 +283,7 @@
         <entry key="$PROJECT_DIR$/../homedepot" value="1453394675000" />
         <entry key="$PROJECT_DIR$/../homedepot-boot" value="1453318397000" />
         <entry key="$PROJECT_DIR$/../learning-boot-mongodb" value="1453750789000" />
-        <entry key="$PROJECT_DIR$" value="1454446193000" />
+        <entry key="$PROJECT_DIR$" value="1454955243000" />
         <entry key="$PROJECT_DIR$/../nonspring-boot-data-rest" value="1453252253000" />
         <entry key="$PROJECT_DIR$/../spring-boot-cities" value="4356338922000" />
         <entry key="$PROJECT_DIR$/../spring-boot-jms-amqp" value="1453304698000" />
@@ -282,6 +299,130 @@
                   <entry key="$PROJECT_DIR$">
                     <value>
                       <ExternalModuleBuildClasspathPojo>
+                        <option name="entries">
+                          <list>
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter-data-mongodb/1.3.2.RELEASE/4ff4b2690cc53c7ddb562da6fba316a63df937d9/spring-boot-starter-data-mongodb-1.3.2.RELEASE-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter-data-mongodb/1.3.2.RELEASE/66efc32104df98c31749fdcf7ff4f05ce465a1c7/spring-boot-starter-data-mongodb-1.3.2.RELEASE.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter-data-rest/1.3.2.RELEASE/31c062d13a2b661b14f7ef30bef943b999599967/spring-boot-starter-data-rest-1.3.2.RELEASE-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter-data-rest/1.3.2.RELEASE/3c642780a7f4fee86368610e5f05cf591e7a90ba/spring-boot-starter-data-rest-1.3.2.RELEASE.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter-cloud-connectors/1.3.2.RELEASE/d5c5476618467b6a47398acd6e9fe47f436a510b/spring-boot-starter-cloud-connectors-1.3.2.RELEASE-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter-cloud-connectors/1.3.2.RELEASE/40d9d9133a5baf3adc58f8f93dd363b4768518ae/spring-boot-starter-cloud-connectors-1.3.2.RELEASE.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter/1.3.2.RELEASE/7931203fa2b9c7c9d19e3b6ec8f4a55292e90d6f/spring-boot-starter-1.3.2.RELEASE-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter/1.3.2.RELEASE/bf98e5da17df2f2c1a7b099631de0f53b663e57f/spring-boot-starter-1.3.2.RELEASE.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.mongodb/mongo-java-driver/2.13.3/72284343707580e77d93d9df02da83ea9f32018f/mongo-java-driver-2.13.3-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.mongodb/mongo-java-driver/2.13.3/e8835850d2866528ecd45617f837c8110341ec99/mongo-java-driver-2.13.3.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.data/spring-data-mongodb/1.8.2.RELEASE/f743ec13af4caa58545c587aa8bf46db927e7259/spring-data-mongodb-1.8.2.RELEASE-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.data/spring-data-mongodb/1.8.2.RELEASE/b279df28ed7340c6968bee0b32b827ed1cc4ce4e/spring-data-mongodb-1.8.2.RELEASE.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter-web/1.3.2.RELEASE/3b9393993d1267822157decea023859ae1e4dfb8/spring-boot-starter-web-1.3.2.RELEASE-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter-web/1.3.2.RELEASE/11876c0f2e6c9b00530e919f915d0ff6f665f7bc/spring-boot-starter-web-1.3.2.RELEASE.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-annotations/2.6.5/10394a8b3d8af4885e020e2571a7633f7a0bd741/jackson-annotations-2.6.5-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-annotations/2.6.5/65137ebf85056473b40c311f889601646a7612ba/jackson-annotations-2.6.5.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-databind/2.6.5/8176652b0ade481ff1ceb1bec03c70e2eb6f1c37/jackson-databind-2.6.5-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-databind/2.6.5/d50be1723a09befd903887099ff2014ea9020333/jackson-databind-2.6.5.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.data/spring-data-rest-webmvc/2.4.2.RELEASE/4c3b44f342f26c7bda9908c8a3057b833d8e70ca/spring-data-rest-webmvc-2.4.2.RELEASE-sources.jar" />
+                            <option value="$MAVEN_REPOSITORY$/org/springframework/data/spring-data-rest-webmvc/2.4.2.RELEASE/spring-data-rest-webmvc-2.4.2.RELEASE.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.cloud/spring-cloud-spring-service-connector/1.2.1.RELEASE/4c7dae6492afb7a842be3604f9767a7622999502/spring-cloud-spring-service-connector-1.2.1.RELEASE-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.cloud/spring-cloud-spring-service-connector/1.2.1.RELEASE/1a2eb84f87b91f484191a3f04c79ef289ca62ed4/spring-cloud-spring-service-connector-1.2.1.RELEASE.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.cloud/spring-cloud-cloudfoundry-connector/1.2.1.RELEASE/1f10fe3f16cc7f27775c3dbb66a22b2dca1d6da4/spring-cloud-cloudfoundry-connector-1.2.1.RELEASE-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.cloud/spring-cloud-cloudfoundry-connector/1.2.1.RELEASE/83ac6ed01917584c8017a331e444779272b0c3d3/spring-cloud-cloudfoundry-connector-1.2.1.RELEASE.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.cloud/spring-cloud-heroku-connector/1.2.1.RELEASE/109c4f3e223cca1d460b58aa30fc6230b69d09c9/spring-cloud-heroku-connector-1.2.1.RELEASE-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.cloud/spring-cloud-heroku-connector/1.2.1.RELEASE/cd2ff47b057dbcc053cdd799036f0c39f21bf6b/spring-cloud-heroku-connector-1.2.1.RELEASE.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.cloud/spring-cloud-localconfig-connector/1.2.1.RELEASE/f9e21cc625ae4258c95acda8c092221e55a9facc/spring-cloud-localconfig-connector-1.2.1.RELEASE-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.cloud/spring-cloud-localconfig-connector/1.2.1.RELEASE/6c30c1e133f8cf371afaaee34cf72650cf93a9bb/spring-cloud-localconfig-connector-1.2.1.RELEASE.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot/1.3.2.RELEASE/cb4d2dc086b754cf2961b7763c4d06f427a86913/spring-boot-1.3.2.RELEASE-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot/1.3.2.RELEASE/62d0b690a08be593bb0288e0ec93f5bda52be6a/spring-boot-1.3.2.RELEASE.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-autoconfigure/1.3.2.RELEASE/94747b7298f03658d45fd6da3a99255eed3ab61c/spring-boot-autoconfigure-1.3.2.RELEASE-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-autoconfigure/1.3.2.RELEASE/dbd3d19d62e588b7fd495e8a3071ff076d0f74d5/spring-boot-autoconfigure-1.3.2.RELEASE.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter-logging/1.3.2.RELEASE/bc0de996c28186223d4bee65348112c6370581ff/spring-boot-starter-logging-1.3.2.RELEASE-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter-logging/1.3.2.RELEASE/f45580c295d3d340b6af23562fa034d48cef085a/spring-boot-starter-logging-1.3.2.RELEASE.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-core/4.2.4.RELEASE/ac0a24fb3bced1f9c3274793525a74bd8e09e56b/spring-core-4.2.4.RELEASE-sources.jar" />
+                            <option value="$MAVEN_REPOSITORY$/org/springframework/spring-core/4.2.4.RELEASE/spring-core-4.2.4.RELEASE.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.yaml/snakeyaml/1.16/ad03b39efb3749be4c8d2eae23d6dee72c889f3b/snakeyaml-1.16-sources.jar" />
+                            <option value="$MAVEN_REPOSITORY$/org/yaml/snakeyaml/1.16/snakeyaml-1.16.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-tx/4.2.4.RELEASE/52ccbd22e04e295d1642c46abdae5a9657d16de3/spring-tx-4.2.4.RELEASE-sources.jar" />
+                            <option value="$MAVEN_REPOSITORY$/org/springframework/spring-tx/4.2.4.RELEASE/spring-tx-4.2.4.RELEASE.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-context/4.2.4.RELEASE/6bb77fb5a402a814329db35e9678803d14ebf1bd/spring-context-4.2.4.RELEASE-sources.jar" />
+                            <option value="$MAVEN_REPOSITORY$/org/springframework/spring-context/4.2.4.RELEASE/spring-context-4.2.4.RELEASE.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-beans/4.2.4.RELEASE/9e3b3823c8fd75c4c57afe9bb7c9d4f26c6d97e/spring-beans-4.2.4.RELEASE-sources.jar" />
+                            <option value="$MAVEN_REPOSITORY$/org/springframework/spring-beans/4.2.4.RELEASE/spring-beans-4.2.4.RELEASE.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-expression/4.2.4.RELEASE/4331326a05efe7890fa82ac3cdde6d396f025752/spring-expression-4.2.4.RELEASE-sources.jar" />
+                            <option value="$MAVEN_REPOSITORY$/org/springframework/spring-expression/4.2.4.RELEASE/spring-expression-4.2.4.RELEASE.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.data/spring-data-commons/1.11.2.RELEASE/33efeac9732261efa4c7eacb3d7db4d6674936ac/spring-data-commons-1.11.2.RELEASE-sources.jar" />
+                            <option value="$MAVEN_REPOSITORY$/org/springframework/data/spring-data-commons/1.11.2.RELEASE/spring-data-commons-1.11.2.RELEASE.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-api/1.7.13/96e785df399a4e1a6c030877097807b7e18520cc/slf4j-api-1.7.13-sources.jar" />
+                            <option value="$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/1.7.13/slf4j-api-1.7.13.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.slf4j/jcl-over-slf4j/1.7.13/988decf2bd4133c233f1e63f0da7368ee78c6405/jcl-over-slf4j-1.7.13-sources.jar" />
+                            <option value="$MAVEN_REPOSITORY$/org/slf4j/jcl-over-slf4j/1.7.13/jcl-over-slf4j-1.7.13.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter-tomcat/1.3.2.RELEASE/b6fdac1387ed31d3c97d86cbb92d964f706b512d/spring-boot-starter-tomcat-1.3.2.RELEASE-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter-tomcat/1.3.2.RELEASE/cd57af767a29484de124b8ed46ae82d974cc6901/spring-boot-starter-tomcat-1.3.2.RELEASE.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter-validation/1.3.2.RELEASE/db66362d0115faf5b5ee92746a722d9fa242f0df/spring-boot-starter-validation-1.3.2.RELEASE-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter-validation/1.3.2.RELEASE/89cf677b97e59ed6a4b5e00350aa2b294fe04e33/spring-boot-starter-validation-1.3.2.RELEASE.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-web/4.2.4.RELEASE/bcc167b48ae8c9478eb4a8f0e99d095dbf38013f/spring-web-4.2.4.RELEASE-sources.jar" />
+                            <option value="$MAVEN_REPOSITORY$/org/springframework/spring-web/4.2.4.RELEASE/spring-web-4.2.4.RELEASE.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-webmvc/4.2.4.RELEASE/77456f960e9d68ee33956955fb3a9af05b930602/spring-webmvc-4.2.4.RELEASE-sources.jar" />
+                            <option value="$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/4.2.4.RELEASE/spring-webmvc-4.2.4.RELEASE.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-core/2.6.5/e1466f546b8261fc8c6fd4b47718a73b4005d0aa/jackson-core-2.6.5-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-core/2.6.5/334369d7eff497f358b248c171dac0dd62c68f67/jackson-core-2.6.5.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.data/spring-data-rest-core/2.4.2.RELEASE/5b2dd05135fe34eeed720ce9db9260dec4828c9f/spring-data-rest-core-2.4.2.RELEASE-sources.jar" />
+                            <option value="$MAVEN_REPOSITORY$/org/springframework/data/spring-data-rest-core/2.4.2.RELEASE/spring-data-rest-core-2.4.2.RELEASE.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.fge/json-patch/1.7/2bfd2115c9c83a93279931f3e4d247ef7502d42b/json-patch-1.7-sources.jar" />
+                            <option value="$MAVEN_REPOSITORY$/com/github/fge/json-patch/1.7/json-patch-1.7.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.cloud/spring-cloud-core/1.2.1.RELEASE/a1303e16ed78747675d3ae6397f0f69276c1bc22/spring-cloud-core-1.2.1.RELEASE-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.cloud/spring-cloud-core/1.2.1.RELEASE/e49cfb2115575ac32eb75b569a15e98bb40379ab/spring-cloud-core-1.2.1.RELEASE.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.commons/commons-lang3/3.3.2/d2a489573c0ed2c4942b3660decad5d65087b406/commons-lang3-3.3.2-sources.jar" />
+                            <option value="$MAVEN_REPOSITORY$/org/apache/commons/commons-lang3/3.3.2/commons-lang3-3.3.2.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/ch.qos.logback/logback-classic/1.1.3/f4915df0360e7529c61f9e78ef3a06c19238e62e/logback-classic-1.1.3-sources.jar" />
+                            <option value="$MAVEN_REPOSITORY$/ch/qos/logback/logback-classic/1.1.3/logback-classic-1.1.3.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.slf4j/jul-to-slf4j/1.7.13/82c0b8827ff637d6d15abf9bcc4a26c55a6cb4ce/jul-to-slf4j-1.7.13-sources.jar" />
+                            <option value="$MAVEN_REPOSITORY$/org/slf4j/jul-to-slf4j/1.7.13/jul-to-slf4j-1.7.13.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.slf4j/log4j-over-slf4j/1.7.13/5cab642de2658baebc2ceb416e28995996bea680/log4j-over-slf4j-1.7.13-sources.jar" />
+                            <option value="$MAVEN_REPOSITORY$/org/slf4j/log4j-over-slf4j/1.7.13/log4j-over-slf4j-1.7.13.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-aop/4.2.4.RELEASE/624e142c456bd8622e27e959dc3e1b192524ba84/spring-aop-4.2.4.RELEASE-sources.jar" />
+                            <option value="$MAVEN_REPOSITORY$/org/springframework/spring-aop/4.2.4.RELEASE/spring-aop-4.2.4.RELEASE.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.tomcat.embed/tomcat-embed-core/8.0.30/63de3c69f2a2b972ee12d55bc175cc36424651fc/tomcat-embed-core-8.0.30-sources.jar" />
+                            <option value="$MAVEN_REPOSITORY$/org/apache/tomcat/embed/tomcat-embed-core/8.0.30/tomcat-embed-core-8.0.30.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.tomcat.embed/tomcat-embed-el/8.0.30/ac4a7668ef38ed4e0d0c15a8ad232b75acb2639b/tomcat-embed-el-8.0.30-sources.jar" />
+                            <option value="$MAVEN_REPOSITORY$/org/apache/tomcat/embed/tomcat-embed-el/8.0.30/tomcat-embed-el-8.0.30.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.tomcat.embed/tomcat-embed-logging-juli/8.0.30/94a91d71cfc9d6beb1c2299d9a2a774893789cef/tomcat-embed-logging-juli-8.0.30-sources.jar" />
+                            <option value="$MAVEN_REPOSITORY$/org/apache/tomcat/embed/tomcat-embed-logging-juli/8.0.30/tomcat-embed-logging-juli-8.0.30.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.tomcat.embed/tomcat-embed-websocket/8.0.30/f42ebae8e98671483cf2036cfb6a1eccf6e0aad5/tomcat-embed-websocket-8.0.30-sources.jar" />
+                            <option value="$MAVEN_REPOSITORY$/org/apache/tomcat/embed/tomcat-embed-websocket/8.0.30/tomcat-embed-websocket-8.0.30.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.hibernate/hibernate-validator/5.2.2.Final/e99f81c395344c926b514fc4441d23f3cc8b0a33/hibernate-validator-5.2.2.Final-sources.jar" />
+                            <option value="$MAVEN_REPOSITORY$/org/hibernate/hibernate-validator/5.2.2.Final/hibernate-validator-5.2.2.Final.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.hateoas/spring-hateoas/0.19.0.RELEASE/27b49e7d74cbef23844c678f278e94511d85898/spring-hateoas-0.19.0.RELEASE-sources.jar" />
+                            <option value="$MAVEN_REPOSITORY$/org/springframework/hateoas/spring-hateoas/0.19.0.RELEASE/spring-hateoas-0.19.0.RELEASE.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.plugin/spring-plugin-core/1.2.0.RELEASE/112d82259202fa909d51cf7ccefae0c5523f1373/spring-plugin-core-1.2.0.RELEASE-sources.jar" />
+                            <option value="$MAVEN_REPOSITORY$/org/springframework/plugin/spring-plugin-core/1.2.0.RELEASE/spring-plugin-core-1.2.0.RELEASE.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.atteo/evo-inflector/1.2.1/17f6759c671abbc4741cf3a2ddfbca2c01dffe1b/evo-inflector-1.2.1-sources.jar" />
+                            <option value="$MAVEN_REPOSITORY$/org/atteo/evo-inflector/1.2.1/evo-inflector-1.2.1.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.fge/jackson-coreutils/1.6/f8fbbad472448377312aeb01c4519805cbb3f076/jackson-coreutils-1.6-sources.jar" />
+                            <option value="$MAVEN_REPOSITORY$/com/github/fge/jackson-coreutils/1.6/jackson-coreutils-1.6.jar" />
+                            <option value="$MAVEN_REPOSITORY$/com/google/code/findbugs/jsr305/2.0.1/jsr305-2.0.1.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/ch.qos.logback/logback-core/1.1.3/a69d9a62a693f391ad19d8ac19fa85a7a60cbc7c/logback-core-1.1.3-sources.jar" />
+                            <option value="$MAVEN_REPOSITORY$/ch/qos/logback/logback-core/1.1.3/logback-core-1.1.3.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/aopalliance/aopalliance/1.0/4a4b6d692e17846a9f3da036438a7ac491d3c814/aopalliance-1.0-sources.jar" />
+                            <option value="$MAVEN_REPOSITORY$/aopalliance/aopalliance/1.0/aopalliance-1.0.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/javax.validation/validation-api/1.1.0.Final/7d49b53caed9bd81d172807c3e096d24f3c57090/validation-api-1.1.0.Final-sources.jar" />
+                            <option value="$MAVEN_REPOSITORY$/javax/validation/validation-api/1.1.0.Final/validation-api-1.1.0.Final.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jboss.logging/jboss-logging/3.3.0.Final/3625e6818158ddb4754fa2ec51299e5f57e596b4/jboss-logging-3.3.0.Final-sources.jar" />
+                            <option value="$MAVEN_REPOSITORY$/org/jboss/logging/jboss-logging/3.3.0.Final/jboss-logging-3.3.0.Final.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.fasterxml/classmate/1.1.0/53b184da3b8780beff23ba6bf1aaece92ee45e6f/classmate-1.1.0-sources.jar" />
+                            <option value="$MAVEN_REPOSITORY$/com/fasterxml/classmate/1.1.0/classmate-1.1.0.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.fge/msg-simple/1.1/d2edffa8b1f911531725430bcbb2ac3870f19323/msg-simple-1.1-sources.jar" />
+                            <option value="$MAVEN_REPOSITORY$/com/github/fge/msg-simple/1.1/msg-simple-1.1.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.guava/guava/16.0.1/2477d012cd5379f9696e0d9d3ccc62ad13a09ca4/guava-16.0.1-sources.jar" />
+                            <option value="$MAVEN_REPOSITORY$/com/google/guava/guava/16.0.1/guava-16.0.1.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.fge/btf/1.2/a38c09aeeee6a2fc168cb296ed75cfe014789cfc/btf-1.2-sources.jar" />
+                            <option value="$MAVEN_REPOSITORY$/com/github/fge/btf/1.2/btf-1.2.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-gradle-plugin/1.3.2.RELEASE/30d392cf445b120f935f190b360ede6f7d358a38/spring-boot-gradle-plugin-1.3.2.RELEASE-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-gradle-plugin/1.3.2.RELEASE/2452f2166eac3c6bf56eada0a0cdbfcb7edc7aad/spring-boot-gradle-plugin-1.3.2.RELEASE.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-loader-tools/1.3.2.RELEASE/d11b92a358fdd058311d0bff8bb1dfef7faaace9/spring-boot-loader-tools-1.3.2.RELEASE-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-loader-tools/1.3.2.RELEASE/b00f2ca96363a4152414b34b941f7fc861a34fe3/spring-boot-loader-tools-1.3.2.RELEASE.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.spring.gradle/dependency-management-plugin/0.5.4.RELEASE/47dcbe179ea333e9b70e9c254f71f39b846db9f4/dependency-management-plugin-0.5.4.RELEASE-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.spring.gradle/dependency-management-plugin/0.5.4.RELEASE/99e9405add0470cda7c8b8b5a4a723d7ba19f458/dependency-management-plugin-0.5.4.RELEASE.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-core/4.2.4.RELEASE/160ccd89230753d4f49477a967f5876b034d9745/spring-core-4.2.4.RELEASE.jar" />
+                          </list>
+                        </option>
                         <option name="path" value="$PROJECT_DIR$" />
                       </ExternalModuleBuildClasspathPojo>
                     </value>
@@ -423,12 +564,25 @@
         <option value="$PROJECT_DIR$/src/main/java/io/pivotal/micropcf/Track.java" />
         <option value="$PROJECT_DIR$/src/main/java/io/pivotal/micropcf/TrackRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/io/pivotal/micropcf/AOR.java" />
-        <option value="$PROJECT_DIR$/build.gradle" />
         <option value="$PROJECT_DIR$/task.yml" />
         <option value="$PROJECT_DIR$/push.sh" />
         <option value="$PROJECT_DIR$/build/resources/application.properties" />
-        <option value="$PROJECT_DIR$/pipeline.yml" />
         <option value="$PROJECT_DIR$/manifest.yml" />
+        <option value="$PROJECT_DIR$/src/main/java/io/pivotal/micropcf/config/CloudDataSourceConfig.java" />
+        <option value="$PROJECT_DIR$/pipeline.yml" />
+        <option value="$PROJECT_DIR$/ci/build-artifact.sh" />
+        <option value="$PROJECT_DIR$/ci/tasks/build-artifact.yml" />
+        <option value="$PROJECT_DIR$/ci/tasks/cats.sh" />
+        <option value="$PROJECT_DIR$/ci/tasks/cats.yml" />
+        <option value="$PROJECT_DIR$/ci/tasks/cf-deployment.yml" />
+        <option value="$PROJECT_DIR$/ci/tasks/push-tag.sh" />
+        <option value="$PROJECT_DIR$/ci/tasks/unit.sh" />
+        <option value="$PROJECT_DIR$/ci/tasks/unit.yml" />
+        <option value="$PROJECT_DIR$/ci/Dockerfile" />
+        <option value="$PROJECT_DIR$/build.gradle" />
+        <option value="$PROJECT_DIR$/credentials.yml" />
+        <option value="$PROJECT_DIR$/ci/tasks/cf-deployment.sh" />
+        <option value="$PROJECT_DIR$/ci/pipeline.yml" />
       </list>
     </option>
   </component>
@@ -445,9 +599,9 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1729" />
-    <option name="y" value="75" />
-    <option name="width" value="1239" />
+    <option name="x" value="1462" />
+    <option name="y" value="131" />
+    <option name="width" value="1209" />
     <option name="height" value="808" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -476,8 +630,6 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -506,23 +658,48 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
+              <option name="myItemId" value="ci" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="micropcf-exampleApp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="micropcf-exampleApp" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
+              <option name="myItemId" value="ci" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tasks" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="settings.editor.selected.configurable" value="settings.github" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/build" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../product" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.34712642" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/ci/tasks" />
+      <recent name="$PROJECT_DIR$/ci" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
@@ -874,29 +1051,31 @@
     </configuration>
   </component>
   <component name="SbtLocalSettings">
-    <option name="lastUpdateTimestamp" value="1454456745348" />
+    <option name="lastUpdateTimestamp" value="1455043314108" />
     <option name="externalProjectsViewState">
       <projects_view />
     </option>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
   <component name="ToolWindowManager">
-    <frame x="1729" y="75" width="1239" height="808" extended-state="0" />
-    <editor active="false" />
+    <frame x="1462" y="131" width="1209" height="808" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32882273" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33844012" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286908" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33704737" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34419382" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35304198" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1324232" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.13199666" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -908,8 +1087,6 @@
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32882273" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -950,7 +1127,15 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/pipeline.yml">
+    <entry file="file://$PROJECT_DIR$/manifest.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/application-cloud.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -958,7 +1143,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pipeline.yml">
+    <entry file="file://$PROJECT_DIR$/ci/pipeline.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -966,7 +1151,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pipeline.yml">
+    <entry file="file://$PROJECT_DIR$/manifest.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -974,7 +1159,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pipeline.yml">
+    <entry file="file://$PROJECT_DIR$/manifest.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="7" column="3" selection-start-line="7" selection-start-column="3" selection-end-line="7" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/pivotal/micropcf/config/CloudDataSourceConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/manifest.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -982,27 +1182,125 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pipeline.yml">
+    <entry file="file://$PROJECT_DIR$/ci/pipeline.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="22" column="31" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/pivotal/micropcf/Application.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="31" column="1" selection-start-line="31" selection-start-column="1" selection-end-line="31" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/pivotal/micropcf/config/CloudDataSourceConfig.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/manifest.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="7" column="3" selection-start-line="7" selection-start-column="3" selection-end-line="7" selection-end-column="3" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pipeline.yml">
+    <entry file="file://$PROJECT_DIR$/ci/pipeline.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="22" column="31" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/pivotal/micropcf/Application.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/manifest.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="7" column="3" selection-start-line="7" selection-start-column="3" selection-end-line="7" selection-end-column="3" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pipeline.yml">
+    <entry file="file://$PROJECT_DIR$/ci/pipeline.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/manifest.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="7" column="3" selection-start-line="7" selection-start-column="3" selection-end-line="7" selection-end-column="3" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ci/pipeline.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ci/pipeline.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ci/pipeline.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ci/pipeline.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ci/pipeline.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ci/pipeline.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ci/pipeline.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ci/pipeline.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1015,33 +1313,214 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/io/pivotal/micropcf/Application.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.73717946">
+        <state vertical-scroll-proportion="0.0">
           <caret line="31" column="1" selection-start-line="31" selection-start-column="1" selection-end-line="31" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/pivotal/micropcf/config/CloudDataSourceConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.43526787">
+          <caret line="13" column="97" selection-start-line="8" selection-start-column="0" selection-end-line="13" selection-end-column="97" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ci/tasks/push-tag.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.10901163">
+          <caret line="5" column="24" selection-start-line="5" selection-start-column="24" selection-end-line="5" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ci/Dockerfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.06540698">
+          <caret line="3" column="23" selection-start-line="3" selection-start-column="23" selection-end-line="3" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ci/tasks/unit.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.19622093">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ci/tasks/unit.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0872093">
+          <caret line="4" column="7" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ci/tasks/build-artifact.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.13081396">
+          <caret line="6" column="8" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ci/tasks/cats.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2616279">
+          <caret line="12" column="6" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ci/tasks/cats.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.19622093">
+          <caret line="9" column="2" selection-start-line="9" selection-start-column="2" selection-end-line="9" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ci/tasks/cf-deployment.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.21802326">
+          <caret line="10" column="12" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ci/tasks/build-artifact.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.21802326">
+          <caret line="10" column="12" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/application-cloud.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6118143">
-          <caret line="29" column="1" selection-start-line="29" selection-start-column="1" selection-end-line="29" selection-end-column="1" />
+        <state vertical-scroll-proportion="0.39244187">
+          <caret line="21" column="43" selection-start-line="21" selection-start-column="43" selection-end-line="21" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ci/tasks/cf-deployment.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.45652175">
+          <caret line="21" column="36" selection-start-line="21" selection-start-column="36" selection-end-line="21" selection-end-column="36" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/manifest.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.16025642">
-          <caret line="5" column="14" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
+        <state vertical-scroll-proportion="0.04347826">
+          <caret line="2" column="31" selection-start-line="2" selection-start-column="8" selection-end-line="2" selection-end-column="31" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pipeline.yml">
+    <entry file="file://$PROJECT_DIR$/ci/credentials.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.738255">
-          <caret line="22" column="12" selection-start-line="22" selection-start-column="12" selection-end-line="22" selection-end-column="12" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="9" column="33" selection-start-line="9" selection-start-column="10" selection-end-line="9" selection-end-column="33" />
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ci/pipeline.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8913044">
+          <caret line="119" column="0" selection-start-line="119" selection-start-column="0" selection-end-line="119" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <last-edited>Gradle : micropcf-exampleApp : micropcf-exampleApp.war</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.5" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>Web</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.34712642" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>Spring|micropcf-exampleApp</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.34712642" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>Gradle: aopalliance:aopalliance:1.0</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
   </component>
 </project>

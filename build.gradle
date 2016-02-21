@@ -3,6 +3,8 @@ apply plugin: 'idea'
 apply plugin: 'war'
 apply plugin: 'spring-boot'
 
+version = '1.0'
+
 buildscript {
 	repositories {
 		jcenter()
@@ -17,6 +19,13 @@ buildscript {
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
+archivesBaseName = "simple-mongodb-rest-app"
+
+jar {
+	manifest {
+		attributes 'Implementation-Title': 'Spring Sample Application', 'Implementation-Version': version
+	}
+}
 
 repositories{
 	mavenLocal()
@@ -30,7 +39,7 @@ dependencies {
 }
 
 task wrapper(type: Wrapper) {
-	gradleVersion = '1.9'
+	gradleVersion = '2.3'
 }
 
 war {
