@@ -51,7 +51,7 @@ jobs:
     file: code-repo/ci/tasks/cats.yml
     config:
       params:
-        CODE_URL: https://strini-simple-mongodb-rest-app.cfapps.pez.pivotal.io
+        CODE_URL: {{cats-curl-url}}
 
 - name: promote-to-uat
   plan:
