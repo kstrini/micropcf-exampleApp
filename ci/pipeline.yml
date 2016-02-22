@@ -63,7 +63,7 @@ jobs:
       passed: [acceptance-tests]
       trigger: true
   - task: deploy-to-uat
-    file: music-repo/ci/tasks/cf-deployment.yml
+    file: code-repo/ci/tasks/cf-deployment.yml
     config:
       params:
         API_ENDPOINT: {{cf-api}}
@@ -83,7 +83,7 @@ jobs:
     - get: code-repo
       passed: [promote-to-uat]
   - task: deploy-to-prod
-    file: music-repo/ci/tasks/cf-deployment.yml
+    file: code-repo/ci/tasks/cf-deployment.yml
     config:
       params:
         API_ENDPOINT: {{cf-api}}
