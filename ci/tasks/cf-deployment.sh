@@ -19,4 +19,7 @@ push="cf push $CODE_NAME -n $HOST -p code-release/simple-mongodb-rest-app-*.war 
 echo $push
 eval $push
 
-cf bind-service $CODE_NAME p-mongodb
+echo "bind the app"
+bindsvc="cf bind-service $CODE_NAME p-mongodb"
+echo $bindsvc
+eval $bindsvc
