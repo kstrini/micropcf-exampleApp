@@ -45,8 +45,7 @@ jobs:
         PASSWORD: {{cf-passwd}}
         ORG: {{cf-org}}
         SPACE: {{cf-space-cats}}
-        HOST: {{cf-host}}
-        CODE_NAME: {{app-name}}
+        HOST: {{cf-host-cats}}
   - task: cats
     file: code-repo/ci/tasks/cats.yml
     config:
@@ -71,8 +70,7 @@ jobs:
         PASSWORD: {{cf-passwd}}
         ORG: {{cf-org}}
         SPACE: {{cf-space-uat}}
-        HOST: {{cf-host}}
-        CODE_NAME: {{app-name}}
+        HOST: {{cf-host-uat}}
 
 - name: manual-deploy-to-prod
   serial: true
@@ -91,8 +89,7 @@ jobs:
         PASSWORD: {{cf-passwd}}
         ORG: {{cf-org}}
         SPACE: {{cf-space-prod}}
-        HOST: {{cf-host}}
-        CODE_NAME: {{app-name}}
+        HOST: {{cf-host-prod}}
 
 resources:
 - name: code-repo
