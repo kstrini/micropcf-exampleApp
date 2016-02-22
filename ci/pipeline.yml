@@ -51,7 +51,7 @@ jobs:
     file: code-repo/ci/tasks/cats.yml
     config:
       params:
-        CODE_URL: http://{{cf-host}}
+        CODE_URL: https://{{cf-host}}-app.cfapps.pez.pivotal.io
 
 - name: promote-to-uat
   plan:
