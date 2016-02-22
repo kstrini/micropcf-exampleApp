@@ -6,10 +6,6 @@ version=`cat version/number`
 cd code-repo
 gradle assemble -PVersion=$version
 
-echo "WhereAmi"
-locate="pwd"
-eval $locate
-
-echo "Where do I want"
-findwar="ls build/libs/"
-eval $findwar
+echo "Removing Original War"
+delWar="rm -rf build/libs/simple-mongodb-rest-app-*.war.original"
+eval $delWar
