@@ -32,6 +32,10 @@ repositories{
 	mavenCentral()
 }
 
+springBoot {
+	backupSource = false
+}
+
 dependencies {
 	compile("org.springframework.boot:spring-boot-starter-data-mongodb")
 	compile("org.springframework.boot:spring-boot-starter-data-rest")
