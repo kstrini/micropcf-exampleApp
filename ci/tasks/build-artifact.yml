@@ -1,7 +1,7 @@
 ---
 platform: linux
 
-image: docker:///datianshi/gradle
+image: docker:///kidikarus/gradle
 
 inputs:
   - name: code-repo
