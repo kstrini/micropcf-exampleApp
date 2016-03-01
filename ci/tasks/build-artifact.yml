@@ -9,3 +9,6 @@ inputs:
 
 run:
   path: code-repo/ci/tasks/build-artifact.sh
+
+outputs:
+  - name: binary
