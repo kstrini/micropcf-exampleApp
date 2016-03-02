@@ -48,6 +48,7 @@ jobs:
         HOST: {{cf-host-cats}}
   - task: cats
     file: code-repo/ci/tasks/cats.yml
+    timeout: 5m
     config:
       params:
         CODE_URL: {{cats-curl-url}}

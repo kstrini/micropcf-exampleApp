@@ -1,9 +1,9 @@
 ---
 applications:
-- name: simple-mongodb-rest-app
-  host: simple-mongodb-rest-app
+- name: cats-simple-mongodb-rest-app
+  host: cats-simple-mongodb-rest-app
   memory: 1GB
   instances: 1
-#  path: build/libs/micropcf-exampleApp.war
+  path: build/libs/simple-mongodb-rest-app-1.0.0.war
   services:
   - p-mongodb
