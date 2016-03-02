@@ -14,8 +14,8 @@ echo "Target Org and Space"
 org_space="cf target -o $ORG -s $SPACE"
 eval $org_space
 
-echo "push the app"
-push="cf push $HOST -n $HOST -p code-release/simple-mongodb-rest-app-*.war -m 1GB --no-manifest"
+echo "push the app - no start"
+push="cf push $HOST -n $HOST -p code-release/simple-mongodb-rest-app-*.war -m 1GB --no-start"
 echo $push
 eval $push
 
@@ -23,3 +23,8 @@ echo "bind the app"
 bindsvc="cf bind-service $HOST p-mongodb"
 echo $bindsvc
 eval $bindsvc
+
+echo "start the app"
+start="cf start $HOST"
+echo $start
+eval $start
