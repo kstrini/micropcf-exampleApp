@@ -48,7 +48,6 @@ jobs:
         HOST: {{cf-host-cats}}
   - task: cats
     file: code-repo/ci/tasks/cats.yml
-    attempts: 3
     config:
       params:
         CODE_URL: {{cats-curl-url}}
